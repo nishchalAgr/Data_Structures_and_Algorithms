@@ -5,6 +5,7 @@
 using namespace std;
 
 int arr[] = {2,6,7,9,10,47,66,89};
+int brr[6];
 
 void mergesort(int low, int high);
 void merge(int low , int mid , int high);
