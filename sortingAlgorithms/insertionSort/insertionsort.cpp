@@ -5,6 +5,7 @@
 using namespace std;
 
 int arr[] = {2,6,7,9,10,47,66,89};
+int len = sizeof(arr)/sizeof(arr[0]);
 
 void insertionsort(int arr[]);
 
@@ -13,7 +14,7 @@ int main(){
 
 	insertionsort(arr);
 
-	for(int i = 0; i < 8; i++){
+	for(int i = 0; i < len; i++){
 
 		cout << arr[i] << " " ;
 
@@ -28,7 +29,7 @@ void insertionsort(int arr[]){
 
 	int valuetoinsert, holepos, i;
 
-	for(i = 0; i < 8; i++){
+	for(i = 0; i < len; i++){
 
 		valuetoinsert = arr[i];
 
