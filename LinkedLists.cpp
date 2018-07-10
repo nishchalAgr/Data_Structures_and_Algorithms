@@ -110,6 +110,55 @@ class list{
 
 	}
 
+	void linearSearch(int value){
+
+		int i = 0;	
+
+		if(head == NULL){
+
+			cout << "No elements are in the linked list" << endl;
+
+		}else{
+
+			
+			node* current = new node;
+			current = head;
+
+			int check = 0;
+
+			while(check == 0){
+
+				if(current->data == value){
+
+					cout << "value found at index " << i << endl;
+					return; 
+
+				}
+
+				current = current->next;
+				i++;
+
+				if(current->next == NULL){
+
+					check = 1;
+
+				}
+
+			}
+		
+		}
+
+		if(tail->data == value){
+
+			cout << "value found at index " << i << endl;
+			return;
+
+		}
+
+		cout << "value not found in linked list " << endl;
+
+	}
+
 
 
 };
@@ -121,10 +170,13 @@ int main(){
 	arr.createnode(10);
 	arr.createnode(14);
 	arr.createnode(2);
-
-	arr.insertNode(3 , 1);
+	arr.createnode(7);
+	arr.createnode(3);
+	arr.createnode(8);
 
 	arr.display();
+
+	arr.linearSearch(8);
 
 	return 0;
 
