@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iterator>
-#include <array>
 
 using namespace std;
 
