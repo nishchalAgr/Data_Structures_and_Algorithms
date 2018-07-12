@@ -3,21 +3,137 @@
 
 using namespace std;
 
-int const MAX = 10;
+const int MAX = 10;
+
+struct doubleNode{
+
+	int data;
+	doubleNode *next;
+	doubleNode *back;
+
+};
 
 struct node{
 
 	int data;
 	node *next;
-	node *back;
 
 };
+
+class queues{
+
+	private:
+		int front;
+		int rear;
+		node *head, *tail;
+
+	public:
+		queues(){
+			front = -1;
+			rear = -1;
+			head = NULL;
+			tail = NULL;
+		}
+
+
+		void createnode(int value){
+
+			node *temp = new node;
+
+			temp->data = value;
+			temp->next = NULL;
+
+			//checks for empty list
+			if(head == NULL){
+
+				head = temp;
+				tail = temp;
+				temp = NULL;
+
+			}else{
+				//makes the tail's pointer equal to temp, and then makes temp the new tail	
+				tail->next = temp;
+				tail = temp;
+
+			}
+
+			//cout << head->data << endl;
+
+		}
+
+		void enqueue(int value){
+
+			if(rear == MAX - 1){
+
+				cout << "Queue overflow" << endl;
+				return;
+
+			}else if(front == -1){
+
+				front = 0;
+
+			}
+
+			rear++;
+			createnode(value);
+
+		}
+
+		void display(){
+
+			if(front < 0 || front > rear || head == NULL){
+
+				cout << "No elements in queue" << endl;
+				return;
+
+			}
+
+			node *temp = new node;
+			
+			temp = head;
+
+			int i = 0;
+
+			while(temp != NULL){
+
+				//prints out the value temp is pointing to, and then makes temp point to the next node
+				if(i >= front && i <= rear){
+
+					cout << temp->data << endl;
+
+				}
+
+				temp = temp->next;
+				i++;
+
+			}
+
+			cout << endl;
+
+		}
+
+		void dequeue(){
+
+			if(front < 0 || front > rear){
+
+				cout << "Queue underflow" << endl;
+				return;
+
+			}
+
+			cout << "element dequeued" << endl << endl;
+			front++;
+
+		}
+
+};
+
 
 class stacks{
 	//in here, the top is equal to the tail
 	private:
 
-		node *head, *top;
+		doubleNode *head, *top;
 
 	public:
 	stacks(){
@@ -29,7 +145,7 @@ class stacks{
 
 	int numOfElements(){
 
-		node *temp = new node;
+		doubleNode *temp = new doubleNode;
 
 		temp = head;
 
@@ -54,8 +170,8 @@ class stacks{
 
 		}
 
-		node *temp = new node;
-		node *previous = new node;
+		doubleNode *temp = new doubleNode;
+		doubleNode *previous = new doubleNode;
 
 		temp->data = value;
 		temp->next = NULL;
@@ -102,7 +218,7 @@ class stacks{
 
 	void display(){
 
-		node *temp = new node;
+		doubleNode *temp = new doubleNode;
 		
 		temp = top;
 
@@ -156,8 +272,6 @@ class list{
 	}
 
 	void display(){
-
-		cout << "head is :" << head->data << endl;
 
 		node *temp = new node;
 		
@@ -273,18 +387,22 @@ class list{
 
 int main(){
 
-	stacks arr;
+	queues arr;
 
-	arr.push(3);
-	arr.push(7);
-	arr.push(1);
-	arr.push(8);
-	arr.push(0);
-	arr.push(2);
+	arr.enqueue(4);
+	arr.enqueue(2);
+	arr.enqueue(8);
+	arr.enqueue(6);
+	arr.enqueue(7);	
+	arr.enqueue(0);
 
 	arr.display();
 
-	arr.pop();
+	cout << endl;
+
+	arr.dequeue();
+
+	cout << endl;
 
 	arr.display();
 
