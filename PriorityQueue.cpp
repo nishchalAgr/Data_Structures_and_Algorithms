@@ -118,7 +118,7 @@ class queues{
 
 			int place = 0; 
 
-			while(temp->next != NULL && i <= rear){
+			while(i <= rear){
 
 				if(temp->age > max){
 
@@ -156,6 +156,13 @@ class queues{
 
 			int i = 0;
 
+			if(maxIndex == front){
+
+				front++;
+				return;
+
+			}
+
 			while(temp->next != NULL){
 
 				if(i == front){
@@ -180,6 +187,12 @@ class queues{
 
 			}
 
+			if(maxIndex == rear){
+
+				rear--;
+
+			}
+
 			cout << "element dequeued" << endl << endl;
 
 		}
@@ -189,11 +202,11 @@ int main(){
 
 		queues list;
 
-		list.enqueue("Neil" , 8);
+		list.enqueue("Neil" , 18);
 		list.enqueue("Kenny" , 17);
 		list.enqueue("Nishi" , 10);
-		list.enqueue("Nishchal" , 18);
-		list.enqueue("Siya" , 6);
+		list.enqueue("Nishchal" , 8);
+		list.enqueue("Siya" , 19);
 
 		list.display();
 
@@ -201,9 +214,6 @@ int main(){
 
 		list.display();
 
-		list.dequeue();
-
-		list.display();
 
 
 		return 0;
