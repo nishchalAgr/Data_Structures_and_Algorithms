@@ -47,8 +47,8 @@ void preOrderTraversal(node *top){
 	}
 
 	cout << top->data << "\t";
-	inOrderTraversal(top->left);
-	inOrderTraversal(top->right);
+	preOrderTraversal(top->left);
+	preOrderTraversal(top->right);
 
 }
 
@@ -60,8 +60,8 @@ void postOrderTraversal(node *top){
 
 	}
 	
-	inOrderTraversal(top->left);
-	inOrderTraversal(top->right);
+	postOrderTraversal(top->left);
+	postOrderTraversal(top->right);
 	cout << top->data << "\t";	
 
 }
