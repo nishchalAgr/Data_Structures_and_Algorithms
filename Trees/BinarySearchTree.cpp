@@ -12,18 +12,19 @@ struct node{
 
 };
 
-node *top;
+node *root;
 
 void insert(node *parent, int value){
-	cout << 2 << endl;
+	//cout << 2 << endl;
+
 	node *temp = new node;
 	temp->data = value;
 
-	if(top == NULL){
+	if(root == NULL){
 
-		top = temp;
-		top->right = NULL;
-		top->left = NULL;
+		root = temp;
+		root->right = NULL;
+		root->left = NULL;
 		return;
 
 	}else if(temp->data < parent->data && parent->left == NULL){
@@ -47,7 +48,7 @@ void insert(node *parent, int value){
 		
 	if(temp->data > parent->data){
 
-		insert(temp->right, value);
+		insert(parent->right, value);
 
 	}
 
@@ -103,17 +104,21 @@ void inOrderTraversal(node *parent){
 
 int main(){
 
-	insert(top, 15);
-	insert(top, 22);
-	insert(top, 8);
-	insert(top, 14);
-	insert(top, 45);
-	insert(top, 11);
-	insert(top, 6);
+	insert(root, 15);
+	insert(root, 22);
+	insert(root, 8);
+	//insert(root, 14);
+	//insert(root, 45);
+	//insert(root, 11);
+	//insert(root, 6);
 
-	search(top, 6);
+	cout << root->data << endl;
 
-	//inOrderTraversal(top);
+	cout << root->right->data << endl;	
+
+	cout << root->left->data << endl;	
+
+	//inOrderTraversal(root);
 
 	return 0;	
 }
